@@ -30,3 +30,11 @@ async def do() -> int:
     It will not block the event loop
     """
     return await services.heavy_computation_work_async()
+
+
+@router.get("/sync")
+def do() -> int:
+    """
+    Interesting fact: this function is synchronous, but it will not block the event loop.
+    """
+    return services.heavy_computation_work()
